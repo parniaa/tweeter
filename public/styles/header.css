@@ -1,4 +1,4 @@
-.image-Aligner {
+.header-image {
   height: 400px;
   width: 100vw;
   background-color: #9797d9;
@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 120px;
+  margin-top: 100px;
 }
 .profile-image{
   align-self: center;

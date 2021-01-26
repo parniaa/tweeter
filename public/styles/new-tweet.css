@@ -3,6 +3,22 @@
   justify-content: flex-start;
   flex-direction: column;
 }
+.i2{
+  resize: none;
+  /* border-bottom: solid;
+  border-color: teal; */
+  background-color: inherit;
+  overflow: auto;
+  padding: 10px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid;
+  border-color: teal;
+  margin: 20px;
+
+  /* box-shadow: 1px 1px 1px #999; */
+}
 .i3{
   display: flex;
   justify-content: center;
@@ -10,8 +26,11 @@
   font-family: 'Bungee', cursive;
 }
 .i3i1{
-  flex-grow: 1;
+  flex-grow: 0.25;
   order: 1;
+  background-color: #9797d9;
+  color: #ffffff;
+  border: none;
 }
 .i3i2{
   flex-grow: 4;

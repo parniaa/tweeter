@@ -1,0 +1,19 @@
+header {
+  height: 400px;
+  width: 100vw;
+  background-color: #9797d9;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-tire.png");
+  
+}
+.image-Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.profile-image{
+  align-self: center;
+}
+.profile-text{
+  align-self: center;
+}

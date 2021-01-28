@@ -62,17 +62,24 @@ $(document).ready(function() {
     // prevent the default form submission
     event.preventDefault();
     const submitTweet = $(this).serialize();
-    $.ajax({
-      url: '/tweets',
-      method: 'POST',
-      data: submitTweet
-    })
-      .done((data) => {
+    if(submitTweet.length < 145) {
+      $.ajax({
+        url: '/tweets',
+        method: 'POST',
+        data: submitTweet
       })
-      .fail(() => console.log('There was an error getting the info for that show')
-      )
-      .always(() => console.log('Request is completed.'));
-      loadTweets();
+        .done((data) => {
+          
+          loadTweets();
+        })
+        .fail(() => {
+          if(submitTweet === `text=`) {window.alert("this is empty")}
+          console.log('There was an error getting the info for that show', submitTweet);
+        
+        })
+        .always(() => console.log('Request is completed.'));
+    } else 
+    {window.alert("this is empty")}
       
   });
     // $('.i2').empty();

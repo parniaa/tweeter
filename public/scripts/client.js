@@ -3,7 +3,8 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
+//THE Limit is set to 140 + (5 char for the text value)
+const TWEET_CHAR_LIMIT = 145;
 $(document).ready(function() {
 
   const createTweetElement = function(tweet) {
@@ -63,7 +64,7 @@ $(document).ready(function() {
     // prevent the default form submission
     event.preventDefault();
     const submitTweet = $(this).serialize();
-    if(submitTweet.length < 7) {
+    if(submitTweet.length < TWEET_CHAR_LIMIT) {
       $('#errorstyle1').slideUp();
       $('#errorstyle2').slideUp();
       $.ajax({

@@ -50,6 +50,7 @@ $(document).ready(function() {
         // success case. getting the result of the api
         // this is the only block where you can access the result
         if(result ==='') {console.log("result empty")};
+        $('#tweet-container').empty();
         renderTweets(result);
       })
       .fail(() =>

@@ -34,3 +34,29 @@ body {
    align-self: center;
    background-color:inherit;
  }
+  /* Another smartphone breakpoint is maximum width of around 420px */
+  @media only screen and (max-width: 760px) {
+    /* Write smartphone only styles here */
+    body {
+      background-color: darkgray;
+    }
+  }
+
+  /* Laptops / Desktops: minimum width of 1024px */
+  @media only screen and (min-width: 1024px) {
+    /* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: row;
+      overflow-x: hidden;
+    }
+    main {
+      width: 75vw;
+      margin-right: 15px;
+      justify-content:center ;
+    }
+
+  }

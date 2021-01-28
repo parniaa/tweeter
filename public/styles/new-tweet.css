@@ -8,7 +8,7 @@
   /* border-bottom: solid;
   border-color: teal; */
   background-color: inherit;
-  overflow: auto;
+  /* overflow: auto; */
   padding: 10px;
   border-top: none;
   border-left: none;
@@ -38,3 +38,14 @@
   display: flex;
   justify-content: flex-end;
 }
+
+@media only screen and (min-width: 1024px) {
+  /* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
+  .c1 {
+    width: 90%;
+    margin: 20px;
+    margin-top: 180px;
+
+  }
+}
+

@@ -15,3 +15,23 @@
 .profile-text{
   align-self: center;
 }
+
+@media only screen and (min-width: 1024px) {
+  /* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
+
+  .header-image {
+    height: 300px;
+    width: 25%;
+    align-self: flex-start;
+    
+    margin: 40px;
+    margin-top: 200px;
+
+  }
+  .profile-image{
+
+    margin-top: 100px;
+    align-self: center;
+  }
+
+}

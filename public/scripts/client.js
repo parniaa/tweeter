@@ -4,13 +4,40 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 //THE Limit is set to 140 + (5 char for the text value)
+
+const timeDifference = function (current, previous) {
+
+  let msPerMinute = 60 * 1000;
+  let msPerHour = msPerMinute * 60;
+  let msPerDay = msPerHour * 24;
+  let msPerMonth = msPerDay * 30;
+  let msPerYear = msPerDay * 365;
+
+  let elapsed = current - previous;
+
+  if (elapsed < msPerMinute) {
+    return Math.round(elapsed/1000) + ' seconds ago';   
+  } else if (elapsed < msPerHour) {
+    return Math.round(elapsed/msPerMinute) + ' minutes ago';   
+  } else if (elapsed < msPerDay ) {
+    return Math.round(elapsed/msPerHour ) + ' hours ago';   
+  } else if (elapsed < msPerMonth) {
+    return   Math.round(elapsed/msPerDay) + ' days ago';   
+  } else if (elapsed < msPerYear) {
+    return  Math.round(elapsed/msPerMonth) + ' months ago';   
+  } else {
+    return  Math.round(elapsed/msPerYear ) + ' years ago';   
+  }
+};
 const TWEET_CHAR_LIMIT = 145;
 $(document).ready(function() {
 
   const createTweetElement = function(tweet) {
     /* creating the tweet element */
     let date = new Date(tweet.created_at);
-    let $tweet = `
+    let currentDate = new Date();
+    let relativeDate = timeDifference(currentDate, date);
+    let $tweet = ` 
     <article id="tweet-main">
       <header id="tweet-profile">
         <img  id="tweet-image" src=${tweet.user.avatars}> 
@@ -20,7 +47,7 @@ $(document).ready(function() {
       ${tweet.content.text}
       </div>
       <footer id ="footer-container">
-        <label id="date-item" >${date}</label>
+        <label id="date-item" >${relativeDate}</label>
         <div id="awsome-item">
           <span class="fa fa-flag"></span> 
           <span class="fa fa-retweet"></span> 

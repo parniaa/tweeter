@@ -1,4 +1,5 @@
 "use strict";
+let RelativeTime = require("relative-time");
 
 // Basic express setup:
 
@@ -36,3 +37,4 @@ app.use("/tweets", tweetsRoutes);
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
+module.exports = {RelativeTime};

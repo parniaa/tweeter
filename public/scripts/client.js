@@ -3,101 +3,81 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-const tweetData =
-[
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1611551304911
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1611637704911
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1611637704911
-  },
-  {
-    "user": {
-      "name": "Armin",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1611637704911
-  }
-  
-];
 
+$(document).ready(function() {
 
-
-// // const $tweet = createTweetElement(tweetData);
-// const $tweet = $(`<article class="tweet">Hello world</article>`);
-
-
-const createTweetElement = function(tweet) {
-  /* creating the tweet element */
-  let $tweet = `
-  <article id="tweet-main">
-    <header id="tweet-profile">
-      <img  id="tweet-image" src=${tweet.user.avatars}> 
-      <label id="tweet-id">${tweet.user.name}</label>
-    </header>
-    <div id="tweet-body"> 
-    ${tweet.content.text}
-    </div>
-    <footer id ="footer-container">
-      <label id="date-item" >${tweet.created_at}</label>
-      <div id="awsome-item">
-        <span class="fa fa-flag"></span> 
-        <span class="fa fa-retweet"></span> 
-        <span class="fa fa-heart"></span> 
+  const createTweetElement = function(tweet) {
+    /* creating the tweet element */
+    let $tweet = `
+    <article id="tweet-main">
+      <header id="tweet-profile">
+        <img  id="tweet-image" src=${tweet.user.avatars}> 
+        <label id="tweet-id">${tweet.user.name}</label>
+      </header>
+      <div id="tweet-body"> 
+      ${tweet.content.text}
       </div>
-    </footer>
-  </article> `
-  return $tweet;
-};
+      <footer id ="footer-container">
+        <label id="date-item" >${tweet.created_at}</label>
+        <div id="awsome-item">
+          <span class="fa fa-flag"></span> 
+          <span class="fa fa-retweet"></span> 
+          <span class="fa fa-heart"></span> 
+        </div>
+      </footer>
+    </article> `
+    return $tweet;
+  };
 
-// Test / driver code (temporary)
-// console.log(createTweetElement(tweetData)); // to see what it looks like
+  const renderTweets = function(tweets) {
+  // calls createTweetElement for each tweet
+  // createTweetElement(tweet);
+  // takes return value and appends it to the tweets container
 
-
-
-const renderTweets = function(tweets) {
-  // loops through tweets
-  tweets.forEach(tweet => {
-    // calls createTweetElement for each tweet
-    // createTweetElement(tweet);
-    // takes return value and appends it to the tweets container
-    $(document).ready(function() {
+    tweets.forEach(tweet => {
       $('#tweet-container').prepend(createTweetElement(tweet));
     });
+  };
+  const loadTweets = function () {
+    const url = `http://localhost:8080/tweets`;
+    $.ajax({
+      url,
+      method: 'GET'
+    })
+      .done((result) => {
+        // success case. getting the result of the api
+        // this is the only block where you can access the result
+        if(result ==='') {console.log("result empty")};
+        renderTweets(result);
+      })
+      .fail(() =>
+        console.log('There was an error getting the info for that show')
+      )
+      .always(() => console.log('Request is completed.'));
+    
+  };
+ 
+  loadTweets();
+  $('.c1').on('submit', function (event) {
+    // prevent the default form submission
+    event.preventDefault();
+    const submitTweet = $(this).serialize();
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data: submitTweet
+    })
+      .done((data) => {
+      })
+      .fail(() => console.log('There was an error getting the info for that show')
+      )
+      .always(() => console.log('Request is completed.'));
+      loadTweets();
+      
   });
+    // $('.i2').empty();
+    
+
   
+});
 
-};
-
-renderTweets(tweetData);

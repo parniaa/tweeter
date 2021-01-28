@@ -8,6 +8,7 @@ $(document).ready(function() {
 
   const createTweetElement = function(tweet) {
     /* creating the tweet element */
+    let date = new Date(tweet.created_at);
     let $tweet = `
     <article id="tweet-main">
       <header id="tweet-profile">
@@ -18,7 +19,7 @@ $(document).ready(function() {
       ${tweet.content.text}
       </div>
       <footer id ="footer-container">
-        <label id="date-item" >${tweet.created_at}</label>
+        <label id="date-item" >${date}</label>
         <div id="awsome-item">
           <span class="fa fa-flag"></span> 
           <span class="fa fa-retweet"></span> 
@@ -62,7 +63,9 @@ $(document).ready(function() {
     // prevent the default form submission
     event.preventDefault();
     const submitTweet = $(this).serialize();
-    if(submitTweet.length < 145) {
+    if(submitTweet.length < 7) {
+      $('#errorstyle1').slideUp();
+      $('#errorstyle2').slideUp();
       $.ajax({
         url: '/tweets',
         method: 'POST',
@@ -73,18 +76,20 @@ $(document).ready(function() {
           loadTweets();
         })
         .fail(() => {
-          if(submitTweet === `text=`) {window.alert("this is empty")}
+          if (submitTweet === `text=`) {
+            $('#errorstyle1').slideUp();
+            $('#errorstyle2').slideDown();
+          }
           console.log('There was an error getting the info for that show', submitTweet);
         
         })
         .always(() => console.log('Request is completed.'));
-    } else 
-    {window.alert("this is empty")}
+    } else {
+      $('#errorstyle2').slideUp();
+      $('#errorstyle1').slideDown();
+    }
       
   });
-    // $('.i2').empty();
-    
 
-  
 });
 

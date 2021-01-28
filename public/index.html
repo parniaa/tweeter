@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./styles/header.css" type="text/css" />
     <link rel="stylesheet" href="./styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="./styles/tweet-container.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/error.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -44,6 +45,15 @@
 
     <!-- Page-specific (main) content here -->
     <main>
+        
+       <h3 id="errorstyle1">
+        <span class="fa fa-exclamation-triangle"></span> 
+         Your tweet should be less than 140 words 
+      </h3>
+      <h3 id="errorstyle2">
+        <span class="fa fa-exclamation"></span> 
+         Your tweet is empty!
+      </h3>
       <section>
         <h2>Compose Tweet</h2>
         <form class="c1" method="POST" action="/tweets">

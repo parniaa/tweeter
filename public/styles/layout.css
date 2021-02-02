@@ -32,13 +32,6 @@ main {
   align-self: center;
   background-color: inherit;
 }
-/* Another smartphone breakpoint is maximum width of around 420px */
-@media only screen and (max-width: 760px) {
-  body {
-    background-color: darkgray;
-  }
-}
-
 /* Laptops / Desktops: minimum width of 1024px */
 @media only screen and (min-width: 1024px) {
   body {

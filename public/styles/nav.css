@@ -1,15 +1,14 @@
 nav {
-  
   height: 100px;
   width: 100vw;
-  background-color: #4056A1;
-  color: #FFFFFF;
+  background-color: #4056a1;
+  color: #ffffff;
   padding: 1.5em;
   overflow: auto;
-  position: fixed; 
+  position: fixed;
   top: 0;
- }
- nav span {
-  font-family: 'Bungee', cursive;
+}
+nav span {
+  font-family: "Bungee", cursive;
   padding: 1.5eml;
- }
+}

@@ -6,32 +6,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column; 
+  flex-direction: column;
   margin-top: 100px;
 }
-.profile-image{
+.profile-image {
   align-self: center;
 }
-.profile-text{
+.profile-text {
   align-self: center;
 }
-
+/* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
 @media only screen and (min-width: 1024px) {
-  /* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
-
   .header-image {
     height: 300px;
     width: 25%;
     align-self: flex-start;
-    
     margin: 40px;
     margin-top: 200px;
-
   }
-  .profile-image{
-
+  .profile-image {
     margin-top: 100px;
     align-self: center;
   }
-
 }

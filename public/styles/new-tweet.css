@@ -1,9 +1,9 @@
-.c1{
+.c1 {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
 }
-.i2{
+.i2 {
   resize: none;
   /* border-bottom: solid;
   border-color: teal; */
@@ -19,20 +19,20 @@
 
   /* box-shadow: 1px 1px 1px #999; */
 }
-.i3{
+.i3 {
   display: flex;
   justify-content: center;
   flex-direction: row-reverse;
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
 }
-.i3i1{
+.i3i1 {
   flex-grow: 0.25;
   order: 1;
   background-color: #9797d9;
   color: #ffffff;
   border: none;
 }
-.i3i2{
+.i3i2 {
   flex-grow: 4;
   order: 0;
   display: flex;
@@ -45,7 +45,5 @@
     width: 90%;
     margin: 20px;
     margin-top: 180px;
-
   }
 }
-

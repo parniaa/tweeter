@@ -7,26 +7,26 @@
 
 const timeDifference = function (current, previous) {
 
-  let msPerMinute = 60 * 1000;
-  let msPerHour = msPerMinute * 60;
-  let msPerDay = msPerHour * 24;
-  let msPerMonth = msPerDay * 30;
-  let msPerYear = msPerDay * 365;
+  const MS_PER_MINUTE = 60 * 1000;
+  const MS_PER_HOUR = MS_PER_MINUTE * 60;
+  const MS_PER_DAY = MS_PER_HOUR * 24;
+  const MS_PER_MONTH = MS_PER_DAY * 30;
+  const MS_PER_YEAR = MS_PER_DAY * 365;
 
   let elapsed = current - previous;
 
-  if (elapsed < msPerMinute) {
+  if (elapsed < MS_PER_MINUTE) {
     return Math.round(elapsed/1000) + ' seconds ago';   
-  } else if (elapsed < msPerHour) {
-    return Math.round(elapsed/msPerMinute) + ' minutes ago';   
-  } else if (elapsed < msPerDay ) {
-    return Math.round(elapsed/msPerHour ) + ' hours ago';   
-  } else if (elapsed < msPerMonth) {
-    return   Math.round(elapsed/msPerDay) + ' days ago';   
-  } else if (elapsed < msPerYear) {
-    return  Math.round(elapsed/msPerMonth) + ' months ago';   
+  } else if (elapsed < MS_PER_HOUR) {
+    return Math.round(elapsed/MS_PER_MINUTE) + ' minutes ago';   
+  } else if (elapsed < MS_PER_DAY ) {
+    return Math.round(elapsed/MS_PER_HOUR ) + ' hours ago';   
+  } else if (elapsed < MS_PER_MONTH) {
+    return   Math.round(elapsed/MS_PER_DAY) + ' days ago';   
+  } else if (elapsed < MS_PER_YEAR) {
+    return  Math.round(elapsed/MS_PER_MONTH) + ' months ago';   
   } else {
-    return  Math.round(elapsed/msPerYear ) + ' years ago';   
+    return  Math.round(elapsed/MS_PER_YEAR ) + ' years ago';   
   }
 };
 const TWEET_CHAR_LIMIT = 145;
@@ -59,8 +59,6 @@ $(document).ready(function() {
   };
 
   const renderTweets = function(tweets) {
-  // calls createTweetElement for each tweet
-  // createTweetElement(tweet);
   // takes return value and appends it to the tweets container
 
     tweets.forEach(tweet => {
@@ -74,17 +72,14 @@ $(document).ready(function() {
       method: 'GET'
     })
       .done((result) => {
-        // success case. getting the result of the api
-        // this is the only block where you can access the result
         if(result ==='') {console.log("result empty")};
         $('#tweet-container').empty();
         renderTweets(result);
       })
       .fail(() =>
-        console.log('There was an error getting the info for that show')
-      )
+        console.log('There was an error getting the info for that show'))
+        
       .always(() => console.log('Request is completed.'));
-    
   };
  
   loadTweets();

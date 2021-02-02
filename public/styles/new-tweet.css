@@ -5,10 +5,7 @@
 }
 .i2 {
   resize: none;
-  /* border-bottom: solid;
-  border-color: teal; */
   background-color: inherit;
-  /* overflow: auto; */
   padding: 10px;
   border-top: none;
   border-left: none;
@@ -16,8 +13,6 @@
   border-bottom: solid;
   border-color: teal;
   margin: 20px;
-
-  /* box-shadow: 1px 1px 1px #999; */
 }
 .i3 {
   display: flex;
@@ -38,9 +33,8 @@
   display: flex;
   justify-content: flex-end;
 }
-
+/* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
 @media only screen and (min-width: 1024px) {
-  /* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
   .c1 {
     width: 90%;
     margin: 20px;

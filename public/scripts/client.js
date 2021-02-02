@@ -72,14 +72,10 @@ $(document).ready(function() {
       method: 'GET'
     })
       .done((result) => {
-        if(result ==='') {console.log("result empty")};
         $('#tweet-container').empty();
         renderTweets(result);
-      })
-      .fail(() =>
-        console.log('There was an error getting the info for that show'))
-        
-      .always(() => console.log('Request is completed.'));
+      });
+
   };
  
   loadTweets();
@@ -104,15 +100,11 @@ $(document).ready(function() {
             $('#errorstyle1').slideUp();
             $('#errorstyle2').slideDown();
           }
-          console.log('There was an error getting the info for that show', submitTweet);
-        
-        })
-        .always(() => console.log('Request is completed.'));
+        });
     } else {
       $('#errorstyle2').slideUp();
       $('#errorstyle1').slideDown();
     }
-      
   });
 
 });

@@ -27,10 +27,6 @@ body {
   flex-direction: column;
   overflow-x: hidden;
 }
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
 main {
   width: 90%;
   align-self: center;
@@ -38,7 +34,6 @@ main {
 }
 /* Another smartphone breakpoint is maximum width of around 420px */
 @media only screen and (max-width: 760px) {
-  /* Write smartphone only styles here */
   body {
     background-color: darkgray;
   }
@@ -46,8 +41,6 @@ main {
 
 /* Laptops / Desktops: minimum width of 1024px */
 @media only screen and (min-width: 1024px) {
-  /* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
-
   body {
     display: flex;
     align-items: center;

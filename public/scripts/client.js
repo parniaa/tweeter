@@ -94,6 +94,8 @@ $(document).ready(function() {
         .done((data) => {
           
           loadTweets();
+          $('.i2').val('');
+          
         })
         .fail(() => {
           if (submitTweet === `text=`) {

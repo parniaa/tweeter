@@ -14,26 +14,43 @@
   box-shadow: 5px 10px #888888;
 }
 #tweet-profile {
+  width: 85vw;
+  margin: 15px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  margin: 15px;
+  justify-content: space-between;
+  overflow: auto;
+  overflow-x: hidden;
 }
+#tweet-c {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
 #tweet-image {
   height: 2.5em;
   width: 2.5em;
   background-color: transparent;
 }
 #tweet-id {
+  margin: 5px;
   align-self: center;
 }
+#tweet-handle {
+  color: lightskyblue;
+  margin-right: 5px;
+}
+
 #tweet-body {
-  width: 100vw;
+  width: 80%;
   margin-bottom: 20px;
   margin-left: 10px;
+  margin-right: 10px;
 }
 #footer-container {
-  width: 85vw;
+  width: 83vw;
   margin-left: 20px;
   padding-top: 10px;
   border-top: solid;
@@ -51,8 +68,12 @@
 @media only screen and (min-width: 1024px) {
   #tweet-main {
     width: 95%;
+    margin: 10px;
+  }
+  #tweet-profile {
+    width: 95%;
   }
   #footer-container {
-    width: 90%;
+    width: 95%;
   }
 }

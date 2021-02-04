@@ -40,8 +40,11 @@ $(document).ready(function() {
     let $tweet = ` 
     <article id="tweet-main">
       <header id="tweet-profile">
-        <img  id="tweet-image" src=${tweet.user.avatars}> 
-        <label id="tweet-id">${tweet.user.name}</label>
+        <div id="tweet-c">
+          <img  id="tweet-image" src=${tweet.user.avatars}> 
+          <label id="tweet-id">${tweet.user.name}</label>
+        </div>
+        <label id="tweet-handle">${tweet.user.handle}</label>
       </header>
       <div id="tweet-body"> 
       ${tweet.content.text}

@@ -1,20 +1,12 @@
-#errorstyle1 {
-  display: none;
-  color: red;
-}
+#errorstyle1,
 #errorstyle2 {
   display: none;
   color: red;
 }
 @media only screen and (min-width: 1024px) {
   /* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
-  #errorstyle1 {
-    margin-top: 130px;
-    display: none;
-    color: red;
-  }
+  #errorstyle1,
   #errorstyle2 {
-    margin-top: 130px;
     display: none;
     color: red;
   }

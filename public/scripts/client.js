@@ -76,6 +76,7 @@ $(document).ready(function() {
     })
       .done((result) => {
         $('#tweet-container').empty();
+        $(".i3i2").val('140');
         renderTweets(result);
       });
 

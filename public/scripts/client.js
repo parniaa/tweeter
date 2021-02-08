@@ -96,7 +96,6 @@ $(document).ready(function() {
     } else if(submitTweet >= 0 ) {
       $('#errorstyle1').slideUp();
       $('#errorstyle2').slideUp();
-
       $.ajax({
         url: '/tweets',
         method: 'POST',

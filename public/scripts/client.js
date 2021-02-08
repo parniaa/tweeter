@@ -29,7 +29,7 @@ const timeDifference = function (current, previous) {
     return  Math.round(elapsed/MS_PER_YEAR ) + ' years ago';   
   }
 };
-const TWEET_CHAR_LIMIT = 145;
+
 $(document).ready(function() {
 
   const createTweetElement = function(tweet) {
@@ -81,19 +81,26 @@ $(document).ready(function() {
       });
 
   };
- 
+
   loadTweets();
   $('.c1').on('submit', function (event) {
     // prevent the default form submission
     event.preventDefault();
-    const submitTweet = $(this).serialize();
-    if(submitTweet.length < TWEET_CHAR_LIMIT) {
+    const tweetValue = $(this).serialize();
+    const submitTweet = parseInt($(".i3i2").val());
+    console.log("first",submitTweet);
+    if (submitTweet === 140) {
+      console.log("THIS IS", submitTweet);
+      $('#errorstyle1').slideUp();
+      $('#errorstyle2').slideDown();
+    } else if(submitTweet >= 0 ) {
       $('#errorstyle1').slideUp();
       $('#errorstyle2').slideUp();
+
       $.ajax({
         url: '/tweets',
         method: 'POST',
-        data: submitTweet
+        data: tweetValue
       })
         .done((data) => {
           
@@ -102,10 +109,7 @@ $(document).ready(function() {
           
         })
         .fail(() => {
-          if (submitTweet === `text=`) {
-            $('#errorstyle1').slideUp();
-            $('#errorstyle2').slideDown();
-          }
+
         });
     } else {
       $('#errorstyle2').slideUp();
